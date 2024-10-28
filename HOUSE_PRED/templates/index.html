@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+    <title>House Price Prediction</title>
+  </head>
+  <body>
+    <h1>House Price Prediction</h1>
+    <form method="POST">
+      <div>
+        <label for="medInc">Median Income:</label>
+        <input type="number" step="any" name="medInc" id="medInc" required />
+      </div>
+      <div>
+        <label for="houseAge">House Age:</label>
+        <input type="number" name="houseAge" id="houseAge" required />
+      </div>
+      <div>
+        <label for="numRooms">Number of Rooms:</label>
+        <input type="number" name="numRooms" id="numRooms" required />
+      </div>
+      <div>
+        <label for="numBedrooms">Number of Bedrooms:</label>
+        <input type="number" name="numBedrooms" id="numBedrooms" required />
+      </div>
+      <div>
+        <label for="population">Population:</label>
+        <input type="number" name="population" id="population" required />
+      </div>
+      <div>
+        <label for="latitude">Latitude:</label>
+        <input
+          type="number"
+          step="any"
+          name="latitude"
+          id="latitude"
+          required
+        />
+      </div>
+      <div>
+        <label for="longitude">Longitude:</label>
+        <input
+          type="number"
+          step="any"
+          name="longitude"
+          id="longitude"
+          required
+        />
+      </div>
+
+      <button type="submit">Predict</button>
+
+      {% if prediction %}
+      <h2>Predicted House Price: ${{ prediction }}</h2>
+      {% endif %}
+    </form>
+  </body>
+</html>
