@@ -30,13 +30,14 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        medInc = float(request.form['medInc'])
-        houseAge = float(request.form['houseAge'])
-        numRooms = float(request.form['numRooms'])
-        numBedrooms = float(request.form['numBedrooms'])
-        population = float(request.form['population'])
-        latitude = float(request.form['latitude'])
-        longitude = float(request.form['longitude'])
+        data = request.get_json()
+        medInc = float(data['medInc'])
+        houseAge = float(data['houseAge'])
+        numRooms = float(data['numRooms'])
+        numBedrooms = float(data['numBedrooms'])
+        population = float(data['population'])
+        latitude = float(data['latitude'])
+        longitude = float(data['longitude'])
 
         input_data = preprocess_input(medInc,
                                        houseAge,
